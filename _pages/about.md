@@ -15,5 +15,5 @@ redirect_from:
 
 A data-driven personal website
 
-##Highlights:
+Highlights:
 Much to come!
