@@ -13,7 +13,6 @@ redirect_from:
 
 📚 Currently learning machine-learning
 
-A data-driven personal website
 
 Highlights:
 ======
