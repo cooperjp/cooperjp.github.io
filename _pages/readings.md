@@ -11,8 +11,8 @@ redirect_from:
 
 Readings that are shaping my thoughts
 ======
-Currently Working On
-======
+# Currently Working On
+
 * May 2024 
   * Atomic Habits - James Clear
   * 
