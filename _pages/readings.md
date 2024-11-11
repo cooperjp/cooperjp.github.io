@@ -9,12 +9,11 @@ redirect_from:
 
 {% include base_path %}
 
-Work experience
+Readings that are shaping my thoughts
 ======
-* May 2024 - Present: Undergraduate Student Researcher
-  * University of Alberta, Edmonton Alberta
-  * Researching machine-learning applications towards predictive toxicology in the Faculty of Pharmacy and Pharmaceutical Sciences.
-  * Skills: Python, PyTorch, scientific communications
+* May 2024 
+  * Atomic Habits - James Clear
+  * 
   
 Skills
 ======
