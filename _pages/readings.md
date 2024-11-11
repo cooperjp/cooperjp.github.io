@@ -11,11 +11,15 @@ redirect_from:
 
 Readings that are shaping my thoughts
 ======
+Currently Reading
+======
 * May 2024 
   * Atomic Habits - James Clear
   * 
   
-Skills
+Completed 
 ======
-* 
+* May 2024 
+  * Atomic Habits - James Clear
+  * 
 
