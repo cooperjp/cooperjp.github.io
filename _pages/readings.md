@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Readings"
+title: "Reading & Learning"
 permalink: /readings/
 author_profile: true
 redirect_from:
@@ -11,7 +11,7 @@ redirect_from:
 
 Readings that are shaping my thoughts
 ======
-Currently Reading
+Currently Working On
 ======
 * May 2024 
   * Atomic Habits - James Clear
