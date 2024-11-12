@@ -6,7 +6,7 @@ author_profile: true
 ---
 
 # Current
- * Medidations - M. Aurelius
+ * Meditations - M. Aurelius
 
 # Completed
  * May 2024 
