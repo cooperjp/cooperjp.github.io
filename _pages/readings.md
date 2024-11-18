@@ -7,6 +7,7 @@ author_profile: true
 
 # Current
  * Meditations - M. Aurelius
+ * Deep Work - Cal Newport
 
 # Completed
  * May 2024 
