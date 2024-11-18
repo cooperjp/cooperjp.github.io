@@ -5,7 +5,7 @@ permalink: /readings/
 author_profile: true
 ---
 
-# Current
+# Current Stack
  * Meditations - M. Aurelius
  * Deep Work - Cal Newport
 
