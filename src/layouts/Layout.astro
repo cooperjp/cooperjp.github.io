@@ -2,7 +2,7 @@
 // src/layouts/Layout.astro
 interface Props {
 	title: string;
-	currentPage: 'about' | 'story' | 'articles';
+	currentPage: 'about' | 'cv' | 'portfolio';
 }
 
 const { title, currentPage } = Astro.props;
@@ -95,7 +95,7 @@ const { title, currentPage } = Astro.props;
 				<a href="/" class={currentPage === 'about' ? 'active' : ''}>
 					About
 				</a>
-				<a href="/cv" class={currentPage === 'CV' ? 'active' : ''}>
+				<a href="/cv" class={currentPage === 'cv' ? 'active' : ''}>
 					CV
 				</a>
 				<a href="/portfolio" class={currentPage === 'portfolio' ? 'active' : ''}>
