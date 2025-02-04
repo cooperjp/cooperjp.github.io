@@ -1,14 +1,216 @@
 ---
-// src/pages/cv.
-
 import Layout from '../layouts/Layout.astro';
+
+const experiences = [
+    {
+        id: 'grad-studies',
+        title: 'Graduate Studies',
+        institution: 'University of Alberta, Faculty of Pharmacy and Pharmaceutical Sciences',
+        period: 'January 2025-Present',
+        content: `I am currently pursuing a thesis-based MSc at the University of Alberta, located in Edmonton AB. 
+		In my first year of graduate studies, I seek to gain a broader understanding of both academia and industry`
+    },
+    {
+        id: 'research-position',
+        title: 'Graduate Research Assistant',
+        institution: 'University of Alberta, Faculty of Pharmacy and Pharmaceutical Sciences',
+        period: 'January 2025 - Present',
+        content: `Currently researching machine learning (ML) applications towards predictive toxicology. I am focused on 
+		explainable artificial intelligence (AI), high-dimension & temporal datasets, and integrating clinical context.`
+
+    },
+    {
+        id: 'internship',
+        title: 'Summer Research Student',
+        institution: 'University of Alberta, Faculty of Pharmacy and Pharmaceutical Sciences',
+        period: 'May 2024 - December 2024',
+        content: `My initial exposure to research immersed me in the dynamic and interdisciplinary world of pharmaceutical sciences,
+		where I learned standard research practices alongside participating fully in research group activities. I gained hands on
+		experience with the scientific process. This experience was key in confirming my passion for research and directly influenced
+		my decision to pursue graduate studies. Working in a collaborative research environment taught me the value of teamwork and prepared
+		me for the work of graduate-level research.`
+    },
+    {
+        id: 'undergrad',
+        title: 'Undergraduate Studies',
+        institution: 'University of Alberta, Faculty of Science',
+        period: '2020-2024',
+        content: `As an undergraduate majoring in Chemistry and minoring in Biology, I learned the foundations which
+		allowed me to think scientifically for eventual research. During my undergraduate studies, I participated in 
+		class research projects, winning an undergraduate research award for sustainability. The project was titled "Assessment of
+		LRT Subway Air Quality", and used low-cost arduino based air quality sensors. From that, the data was collected and analyzed in
+		R to draw insights pertaining to CO2 and PM2.5/10 across the Edmonton subway ssytem. This research taught me the importance of 
+		considering sustainability in scientific research and demonstrated my ability to apply theoretical knowledge to real-world challenges.`
+    },
+    {
+        id: 'fin-internship',
+        title: 'Summer Student Program',
+        institution: 'A2Z Capital',
+        period: 'May 2023 - August 2023',
+        content: `During my time in the A2Z Capital Summer Student Program, I had the experience of learning alongside 
+    among eight selected students. The program featured weekly sessions led by a diverse roster of industry professionals, each bringing 
+    their distinct expertise and perspectives. Our final project challenged us to analyze both residential and commercial properties, 
+    providing a comprehensive view of real estate investment strategies. As the only student from a different academic background, this experience 
+    exposed me to new analytical frameworks and approaches to problem-solving, complementing my technical background with valuable insights 
+    from the financial sector.`
+    },
+
+	{
+        id: 'npo-work',
+        title: 'Communications',
+        institution: 'NeurAlbertaTech Neurotechnologies NPO',
+        period: 'October 2022 - August 2024',
+        content: `As Alberta's leading neurotechnology network, I helped in running Canada's Neurotech Hackathon: natHACKS 
+		from funding to event deliverables.`
+    }
+];
 ---
 
 <Layout title="John-Paul (JP) Cooper" currentPage="cv">
-	<section>
-		<h2>My Story</h2>
-		
-		<p>Hello World!</p>
-	</section>
+    <div class="cv-container">
+        <nav class="sidebar">
+            <ul>
+                {experiences.map(exp => (
+                    <li>
+                        <a 
+                            href={`#${exp.id}`}
+                            class="experience-link">
+							<h3>{exp.title}</h3>
+							<div class="institution">{exp.institution}</div>
+                            <span class="period">{exp.period}</span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
 
+        <main class="content">
+            {experiences.map(exp => (
+                <article 
+                    id={exp.id} 
+                    class="experience-content"
+                >
+                    <h2>{exp.title}</h2>
+                    <h3>{exp.institution}</h3>
+                    <span class="period">{exp.period}</span>
+                    <div class="narrative">
+                        {exp.content}
+                    </div>
+                </article>
+            ))}
+        </main>
+    </div>
 </Layout>
+
+<style>
+    .cv-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+        border-right: 1px solid #eee;
+        padding-right: 1rem;
+    }
+
+    .experience-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 1.2rem;
+        margin-bottom: 0.5rem;
+        border-left: 3px solid transparent;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        background-color: transparent;
+    }
+
+    .experience-link:hover {
+        background-color: #f5f5f5;
+        border-left-color: #666;
+        transform: translateX(5px);  /* Slight movement on hover */
+    }
+
+    .experience-link:target {
+        background-color: #f0f0f0;
+        border-left-color: #222;
+    }
+
+    .experience-link h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .period {
+        display: block;
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 0.25rem;
+        transition: color 0.2s ease;
+    }
+
+    .content {
+        padding-left: 1rem;
+        line-height: 1.7;
+    }
+
+    .experience-content {
+        display: none;
+        max-width: 65ch;
+        animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .experience-content:target {
+        display: block;
+    }
+
+    .experience-content h2 {
+        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+    }
+
+    .experience-content h3 {
+        color: #666;
+        font-weight: normal;
+        margin-bottom: 1.5rem;
+    }
+
+	.experience-content ul {
+		list-style: none;
+		padding-left: 0;
+	}
+
+    /* Animation for content transitions */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .cv-container {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            position: relative;
+            top: 0;
+            border-right: none;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+</style>
