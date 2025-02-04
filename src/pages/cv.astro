@@ -126,16 +126,13 @@ const experiences = [
     }
 
     html {
-    scroll-padding-top: 100px; /* Just enough to clear the header */
-}
+    scroll-padding-top: 310px; /* Just enough to clear the header */
+    }
 
     .sidebar {
     position: sticky;
-    top: 120px; /* Slightly more than scroll-padding */
-    max-height: calc(100vh - 120px);
+    top: 120px;
     overflow-y: auto;
-    border-right: 1px solid #eee;
-    padding-right: 1rem;
     }
     .sidebar::-webkit-scrollbar {
         width: 6px;
@@ -205,6 +202,22 @@ const experiences = [
         display: none;
         max-width: 65ch;
         animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .experience-content {
+    display: none;
+    max-width: 65ch;
+    animation: fadeIn 0.3s ease-in-out;
+    }
+
+/* Show grad-studies by default when no section is targeted */
+    :not(:target) ~ #grad-studies {
+    display: block;
+    }
+
+/* Show the targeted section */
+    .experience-content:target {
+    display: block;
     }
 
     .experience-content:target {
