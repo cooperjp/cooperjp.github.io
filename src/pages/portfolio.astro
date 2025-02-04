@@ -1,14 +1,118 @@
 ---
-// src/pages/portfolio.
-
 import Layout from '../layouts/Layout.astro';
+const projects = await Astro.glob('./portfolio/*.md');
+const sortedProjects = projects.sort((a, b) => 
+    new Date(b.frontmatter.date).valueOf() - new Date(a.frontmatter.date).valueOf()
+);
 ---
 
 <Layout title="John-Paul (JP) Cooper" currentPage="portfolio">
-	<section>
-		<h2>My Projects & Library</h2>
-		
-		<p>Hello World!</p>
-	</section>
+    <div class="portfolio-container">
+        <nav class="sidebar">
+            <ul>
+                {sortedProjects.map(project => (
+                    <li>
+                        <a 
+                            href={project.url}
+                            class="project-link"
+                        >
+                            <h3>{project.frontmatter.title}</h3>
+                            <div class="description">{project.frontmatter.description}</div>
+                            <span class="date">
+                                {new Date(project.frontmatter.date).toLocaleDateString('en-US', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                })}
+                            </span>
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
 
+        <main class="content">
+            <slot />
+        </main>
+    </div>
 </Layout>
+
+<style>
+    .portfolio-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 3rem;
+        margin-top: 2rem;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 2rem;
+        height: fit-content;
+        border-right: 1px solid #eee;
+        padding-right: 1rem;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .project-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        padding: 1.2rem;
+        margin-bottom: 0.5rem;
+        border-left: 3px solid transparent;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        background-color: transparent;
+    }
+
+    .project-link:hover {
+        background-color: #f5f5f5;
+        border-left-color: #666;
+        transform: translateX(5px);
+    }
+
+    .project-link h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        color: #666;
+    }
+
+    .date {
+        display: block;
+        font-size: 0.9rem;
+        color: #666;
+        margin-top: 0.25rem;
+    }
+
+    .content {
+        padding-left: 1rem;
+        line-height: 1.7;
+        max-width: 65ch;
+    }
+
+    @media (max-width: 768px) {
+        .portfolio-container {
+            grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+            position: relative;
+            top: 0;
+            border-right: none;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+</style>
