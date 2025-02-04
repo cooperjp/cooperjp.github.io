@@ -2,9 +2,8 @@
 title: "Running LLMs Locally"
 description: "Guide to running LLM's locally using Ollama"
 date: 2025-02-04
-layout: "../../layouts/PortfolioLayout.astro"  
+layout: "../../layouts/PortfolioLayout.astro" 
 ---
-
 ## Article Objective
 
 In this article, we will run a large language model (LLM) locally, on consumer hardware. This allows one to use LLMs offline, which offers privacy, customization, and no usage fees. 

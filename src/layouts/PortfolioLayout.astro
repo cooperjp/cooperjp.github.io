@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props;
 
 <Layout title={`${frontmatter.title} | JP Cooper`} currentPage="portfolio">
     <div class="portfolio-item">
-        <a href={import.meta.env.BASE_URL + '/portfolio'} class="back-link">
+        <a href="/portfolio" class="back-link">  
             ← Back to Portfolio
         </a>
         
