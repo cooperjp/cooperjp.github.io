@@ -6,10 +6,10 @@ const experiences = [
         id: 'grad-studies',
         title: 'Graduate Studies',
         institution: 'University of Alberta, Faculty of Pharmacy and Pharmaceutical Sciences',
-        period: 'January 2025-Present',
+        period: 'January 2025 - Present',
         content: `I am currently pursuing a thesis-based MSc at the University of Alberta, located in Edmonton AB. 
 		In my first year of graduate studies, I seek to gain a broader understanding of both academia and industry. 
-        Additionally, I keep myself busy in the entrepreneurship world, participating in Lab2Market cohorts and 
+        Additionally, I keep myself busy in the entrepreneurship world, participating in the Winter 2025 Lab2Market Discover cohort and 
         various pitch competitions, winning the Sustainable Cities Challenge in February 2025 alongside my team members.`
     },
     {
@@ -22,7 +22,7 @@ const experiences = [
 
     },
     {
-        id: 'internship',
+        id: 'summer-research',
         title: 'Summer Research Student',
         institution: 'University of Alberta, Faculty of Pharmacy and Pharmaceutical Sciences',
         period: 'May 2024 - December 2024',
@@ -33,16 +33,18 @@ const experiences = [
 		me for the work of graduate-level research.`
     },
     {
-        id: 'undergrad',
+        id: 'undergrad-studies',
         title: 'Undergraduate Studies',
         institution: 'University of Alberta, Faculty of Science',
-        period: '2020-2024',
+        period: '2020 - 2024',
         content: `As an undergraduate majoring in Chemistry and minoring in Biology, I learned the foundations which
 		allowed me to think scientifically for eventual research. During my undergraduate studies, I participated in 
 		class research projects, winning an undergraduate research award for sustainability. The project was titled "Assessment of
 		LRT Subway Air Quality", and used low-cost arduino based air quality sensors. From that, the data was collected and analyzed in
 		R to draw insights pertaining to CO2 and PM2.5/10 across the Edmonton subway ssytem. This research taught me the importance of 
-		considering sustainability in scientific research and demonstrated my ability to apply theoretical knowledge to real-world challenges.`
+		considering sustainability in scientific research and demonstrated my ability to apply theoretical knowledge to real-world challenges.
+        Additionally, I took part in pitch competitions, winning the Sustainable Cities Challenge 2024 proposing the idea of a real-time traffic optimization
+        software.`
     },
     {
         id: 'fin-internship',
@@ -63,7 +65,9 @@ const experiences = [
         institution: 'NeurAlbertaTech Neurotechnologies NPO',
         period: 'October 2022 - August 2024',
         content: `As Alberta's leading neurotechnology network, I played a leadership role in running Canada's Neurotech Hackathon: natHACKS.
-		Additionally, I gained experience in fundraising, grant-writing (>$200,000), and non-profit organization operations.`
+		Additionally, I gained experience in fundraising, grant-writing (>$200,000), and non-profit organization operations. Our mission statement
+        was simple: accessible neurotechnologies. This led me to participate in a funded neurotechnology project for two semesters under a 
+        local physician-scientist which was submitted as a conference abstract to CSPS 2024.`
     }
 ];
 ---
@@ -106,29 +110,8 @@ const experiences = [
 
 <style>
 
-    header {
-        position: sticky;
-        top: 0;
-        background-color: white;
-        z-index: 20;
-        padding-top: 1rem;
-        /* Reduce margin */
-        margin-bottom: 1rem;
-    }
-
-    body {
-        font-family: 'Roboto Slab', serif;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 3rem;
-        line-height: 1.6;
-        color: #222;
-
-        position: relative;
-    }
-
     html {
-    scroll-padding-top: 310px; /* Just enough to clear the header */
+    scroll-padding-top: 400px; 
     }
 
     .sidebar {
@@ -137,7 +120,7 @@ const experiences = [
     overflow-y: auto;
     }
     .sidebar::-webkit-scrollbar {
-        width: 6px;
+        width: 8px;
     }
 
     .sidebar::-webkit-scrollbar-thumb {
@@ -151,8 +134,8 @@ const experiences = [
 
     .cv-container {
         display: grid;
-        grid-template-columns: 300px 1fr;
-        gap: 3rem;
+        grid-template-columns: minmax(250px, 300px) 1fr;
+        gap: 2rem;
         margin-top: 2rem;
         min-height: calc(100vh - 180px);
     }
@@ -171,7 +154,7 @@ const experiences = [
     .experience-link:hover {
         background-color: #f5f5f5;
         border-left-color: #666;
-        transform: translateX(5px);  /* Slight movement on hover */
+        transform: translateX(3px);  /* Slight movement on hover */
     }
 
     .experience-link:target {
@@ -194,7 +177,7 @@ const experiences = [
     }
 
     .content {
-        padding-left: 1rem;
+        padding-left: 0.5rem;
         line-height: 1.7;
         min-height: calc(100vh - 180px);
         padding-bottom: 2rem;
@@ -217,7 +200,6 @@ const experiences = [
     display: block;
     }
 
-/* Show the targeted section */
     .experience-content:target {
     display: block;
     }
@@ -242,7 +224,6 @@ const experiences = [
 		padding-left: 0;
 	}
 
-    /* Animation for content transitions */
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -254,10 +235,13 @@ const experiences = [
         }
     }
 
-    /* Responsive adjustments */
     @media (max-width: 768px) {
         .cv-container {
             grid-template-columns: 1fr;
+        }
+
+        body {
+            padding: 1rem;
         }
 
         .sidebar {
